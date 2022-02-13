@@ -38,3 +38,23 @@ plot(model2, which = 2, pch = 16, col = "blue", lty = 1, lwd = 2)
 plot(model2, which = 3, pch = 16, col = "blue", lty = 1, lwd = 2)
 plot(model2, which = 5, pch = 16, col = "blue", lty = 1, lwd = 2)
 plot(model2, which = 4, pch = 16, col = "blue", lty = 1, lwd = 2)
+
+# Checking Multicolinearity
+
+# Using GGally
+
+library(GGally)
+ggpairs(data)
+
+library(mctest)
+omcdiag(model2)
+imcdiag(model2)
+
+mc.plot(model2)
+
+library(car)
+vif(model2)
+
+# Remedial Multiconlinearity
+model3 <- lm(LungCap ~ Age + Smoke + Gender + Caesarean)
+vif(model3)
