@@ -28,3 +28,13 @@ model2 <- lm(LungCap ~ Age + Height + Smoke + Gender + Caesarean)
 summary(model2)
 
 # model < - lm(lungCap ~ ., data = lungCap)
+
+# Method : 1
+plot(model2)
+
+# Method : 2
+plot(model2, which = 1, pch = 16, col = "blue", lty = 1, lwd = 2)
+plot(model2, which = 2, pch = 16, col = "blue", lty = 1, lwd = 2)
+plot(model2, which = 3, pch = 16, col = "blue", lty = 1, lwd = 2)
+plot(model2, which = 5, pch = 16, col = "blue", lty = 1, lwd = 2)
+plot(model2, which = 4, pch = 16, col = "blue", lty = 1, lwd = 2)
