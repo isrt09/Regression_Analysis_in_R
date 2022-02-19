@@ -67,3 +67,8 @@ cor(df)
 round(cor(df),2)
 df <- df[,-16]
 
+# Simple Linear Model
+model <- lm(price~room_num, data = df)
+summary(model)
+plot(df$room_num,df$price)
+abline(model)
