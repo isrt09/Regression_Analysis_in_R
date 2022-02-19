@@ -51,3 +51,19 @@ df$avg_dist <- (df$dist1 + df$dist2 + df$dist3 + df$dist4 ) /4
 # Remove non-usable variables
 df <- df[,-7:-10]
 df <- df[, -14]
+
+# Dummy Variables
+install.packages("dummies")
+library(dummies)
+
+df <- dummy.data.frame(df)
+
+df <- df[,-9]
+df <- df[,-14]
+df <- df[,-15]
+
+# Cor-relation
+cor(df)
+round(cor(df),2)
+df <- df[,-16]
+
