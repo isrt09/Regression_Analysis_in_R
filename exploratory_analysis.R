@@ -38,3 +38,16 @@ mean(df$n_hos_beds, na.rm = TRUE)
 which(is.na(df$n_hos_beds)) 
 df$n_hos_beds[is.na(df$n_hos_beds)] <- mean(df$n_hos_beds, na.rm = TRUE)
 mean(df$n_hos_beds)
+
+# Data Transformation
+pairs(~price+crime_rate, data = df)
+plot(df$price,df$crime_rate)
+
+df$crime_rate = log(1 + df$crime_rate)
+plot(df$price,df$crime_rate)
+
+df$avg_dist <- (df$dist1 + df$dist2 + df$dist3 + df$dist4 ) /4
+
+# Remove non-usable variables
+df <- df[,-7:-10]
+df <- df[, -14]
